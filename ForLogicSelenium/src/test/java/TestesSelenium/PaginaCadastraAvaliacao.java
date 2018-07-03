@@ -25,6 +25,9 @@ public class PaginaCadastraAvaliacao {
         avaliadorOption.selectByVisibleText(avaliador);
         driver.findElement(By.id("nota-avaliacao")).sendKeys(nota);
         driver.findElement(By.id("feedback-avaliacao")).sendKeys(feedback);
+    }
+    
+    public void apertaBotaoCadastrar(){
         driver.findElement(By.xpath("//*[@id=\"formulario-aval\"]/button")).click();
     }
 }

@@ -23,6 +23,9 @@ public class PaginaCadastraCliente {
         driver.findElement(By.id("cliente-nome")).sendKeys(cliente);
         driver.findElement(By.id("nome-contato")).sendKeys(responsavel);
         driver.findElement(By.id("cliente-data")).sendKeys(data);
+    }
+    
+    public void apertaBotaoCadastrar(){
         driver.findElement(By.xpath("//*[@id=\"formulario-contato\"]/button")).click();
     }
 }

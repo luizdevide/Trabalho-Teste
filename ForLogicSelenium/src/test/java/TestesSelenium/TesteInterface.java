@@ -38,6 +38,7 @@ public class TesteInterface {
         PaginaCadastraCliente pCC = new PaginaCadastraCliente(driver);
         pCC.abre();
         pCC.cadastraCliente("Luiz Guilherme Teste", "Lucas Teste", "20/06/2018");
+        pCC.apertaBotaoCadastrar();
     }
     
     @Test
@@ -45,6 +46,7 @@ public class TesteInterface {
         PaginaCadastraAvaliacao pCA = new PaginaCadastraAvaliacao(driver);
         pCA.abre();
         pCA.cadastraAvaliacao("20/06/2018", "Luiz Guilherme", "9", "Excelente");
+        pCA.apertaBotaoCadastrar();
     }
     
     @Test
@@ -52,6 +54,7 @@ public class TesteInterface {
         PaginaCadastraCliente pCC = new PaginaCadastraCliente(driver);
         pCC.abre();
         pCC.cadastraCliente("", "Lucas Teste", "20/06/2018");
+        pCC.apertaBotaoCadastrar();
         WebElement msgErro = driver.findElement(By.cssSelector("input:required"));
     }
     
@@ -60,6 +63,7 @@ public class TesteInterface {
         PaginaCadastraAvaliacao pCA = new PaginaCadastraAvaliacao(driver);
         pCA.abre();
         pCA.cadastraAvaliacao("", "Luiz Guilherme", "5", "Razoavel");
+        pCA.apertaBotaoCadastrar();
         WebElement msgErro = driver.findElement(By.cssSelector("input:required"));
     }
     

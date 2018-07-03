@@ -121,7 +121,6 @@ public class TesteDaAPI {
                 .statusCode(201);
     }
     
-    //Altera mas o teste nao passa
     @Test
     public void testAtualizaAvaliacao() {
         baseURI = "http://desafio4devs.forlogic.net/api/";
