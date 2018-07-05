@@ -30,4 +30,10 @@ public class PaginaCadastraAvaliacao {
     public void apertaBotaoCadastrar(){
         driver.findElement(By.xpath("//*[@id=\"formulario-aval\"]/button")).click();
     }
+    
+    public String cadastroSucesso(){
+        String msgReal = driver.findElement(By.xpath("//*[@id=\"toast-container\"]/div/div")).getText();
+        
+        return msgReal;
+    }
 }

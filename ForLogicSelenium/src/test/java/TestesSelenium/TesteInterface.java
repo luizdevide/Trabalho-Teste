@@ -39,6 +39,7 @@ public class TesteInterface {
         pCC.abre();
         pCC.cadastraCliente("Luiz Guilherme Teste", "Lucas Teste", "20/06/2018");
         pCC.apertaBotaoCadastrar();
+        Assert.assertEquals("Cliente cadastrado com sucesso!", pCC.cadastroSucesso());
     }
     
     @Test
@@ -47,8 +48,10 @@ public class TesteInterface {
         pCA.abre();
         pCA.cadastraAvaliacao("20/06/2018", "Luiz Guilherme", "9", "Excelente");
         pCA.apertaBotaoCadastrar();
+        Assert.assertEquals("Avaliação cadastrada com sucesso!", pCA.cadastroSucesso());
     }
     
+    /*
     @Test
     public void testeCadastraClienteIncompleto(){
         PaginaCadastraCliente pCC = new PaginaCadastraCliente(driver);
@@ -72,5 +75,5 @@ public class TesteInterface {
         PaginaAvaliacoes pA = new PaginaAvaliacoes(driver);
         pA.abre();
         pA.mostraAvaliacoes();
-    }
+    }*/
 }

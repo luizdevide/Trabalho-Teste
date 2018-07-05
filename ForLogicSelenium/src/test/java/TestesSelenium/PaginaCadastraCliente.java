@@ -1,5 +1,6 @@
 package TestesSelenium;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 /**
@@ -27,5 +28,11 @@ public class PaginaCadastraCliente {
     
     public void apertaBotaoCadastrar(){
         driver.findElement(By.xpath("//*[@id=\"formulario-contato\"]/button")).click();
+    }
+    
+    public String cadastroSucesso(){
+        String msgReal = driver.findElement(By.xpath("//*[@id=\"toast-container\"]/div/div")).getText();
+        
+        return msgReal;
     }
 }
