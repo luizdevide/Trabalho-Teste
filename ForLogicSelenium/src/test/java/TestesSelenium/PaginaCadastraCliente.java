@@ -26,6 +26,23 @@ public class PaginaCadastraCliente {
         driver.findElement(By.id("cliente-data")).sendKeys(data);
     }
     
+    public int camposVazios(){
+        int i = 0;
+        
+        String nome = driver.findElement(By.id("cliente-nome")).getText();
+        String contato = driver.findElement(By.id("nome-contato")).getText();
+        String data = driver.findElement(By.id("cliente-data")).getText();
+        
+        if(nome.isEmpty())
+            i++;
+        else if(contato.isEmpty())
+            i++;
+        else if(data.isEmpty())
+            i++;
+        
+        return i;
+    }
+    
     public void apertaBotaoCadastrar(){
         driver.findElement(By.xpath("//*[@id=\"formulario-contato\"]/button")).click();
     }

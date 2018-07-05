@@ -2,6 +2,7 @@ package TestesSelenium;
 
 import java.util.concurrent.TimeUnit;
 import static jdk.nashorn.tools.ShellFunctions.input;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -33,6 +34,12 @@ public class TesteInterface {
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
     
+    @After
+    public void after(){
+        driver.close();
+    }
+    
+    
     @Test
     public void testeCadastraCliente() {
         PaginaCadastraCliente pCC = new PaginaCadastraCliente(driver);
@@ -50,24 +57,26 @@ public class TesteInterface {
         pCA.apertaBotaoCadastrar();
         Assert.assertEquals("Avaliação cadastrada com sucesso!", pCA.cadastroSucesso());
     }
-    
-    /*
+      
     @Test
     public void testeCadastraClienteIncompleto(){
         PaginaCadastraCliente pCC = new PaginaCadastraCliente(driver);
         pCC.abre();
         pCC.cadastraCliente("", "Lucas Teste", "20/06/2018");
         pCC.apertaBotaoCadastrar();
-        WebElement msgErro = driver.findElement(By.cssSelector("input:required"));
+        int vazio = pCC.camposVazios();
+        Assert.assertEquals(1, vazio);
     }
+    
     
     @Test
     public void testeCadastraAvaliacaoIncompleto(){
         PaginaCadastraAvaliacao pCA = new PaginaCadastraAvaliacao(driver);
         pCA.abre();
-        pCA.cadastraAvaliacao("", "Luiz Guilherme", "5", "Razoavel");
+        pCA.cadastraAvaliacao("20/06/2018", "Luiz Guilherme", "5", "");
         pCA.apertaBotaoCadastrar();
-        WebElement msgErro = driver.findElement(By.cssSelector("input:required"));
+        int vazio = pCA.camposVazios();
+        Assert.assertEquals(1, vazio);
     }
     
     @Test
@@ -75,5 +84,5 @@ public class TesteInterface {
         PaginaAvaliacoes pA = new PaginaAvaliacoes(driver);
         pA.abre();
         pA.mostraAvaliacoes();
-    }*/
+    }
 }

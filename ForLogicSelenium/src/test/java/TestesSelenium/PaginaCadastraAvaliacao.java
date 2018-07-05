@@ -31,6 +31,23 @@ public class PaginaCadastraAvaliacao {
         driver.findElement(By.xpath("//*[@id=\"formulario-aval\"]/button")).click();
     }
     
+    public int camposVazios(){
+        int i = 0;
+        
+        String feedback = driver.findElement(By.id("feedback-avaliacao")).getText();
+        String nota = driver.findElement(By.id("nota-avaliacao")).getText();
+        String data = driver.findElement(By.id("mes-avaliacao")).getText();
+        
+        if(nota.isEmpty())
+            i++;
+        else if(data.isEmpty())
+            i++;
+        else if(feedback.isEmpty())
+            i++;
+        
+        return i;
+    }
+    
     public String cadastroSucesso(){
         String msgReal = driver.findElement(By.xpath("//*[@id=\"toast-container\"]/div/div")).getText();
         
