@@ -90,9 +90,12 @@ public class TesteDaAPI {
         given().
                 header("Authorization", "projeto-teste-b2928").
         when().
-                delete("customers?id=" +id);
+                delete("customers?id=" +id).
+        then()
+              .statusCode(200);
+                
+                
     }
-    
     
     @Test
     public void testAtualizaCliente() {
@@ -111,7 +114,6 @@ public class TesteDaAPI {
                 .statusCode(200);    
     }
     
-    /*
     //Teste Avaliacao
     @Test
     public void testTemAvaliacao() {
@@ -131,7 +133,8 @@ public class TesteDaAPI {
         when().
                 post("evaluations").getBody();
         Avaliacao resultado = body.as(Avaliacao.class);
-        String id = resultado.getId();
+        id = resultado.getId();
+        
         //Testa
         given().
                 header("Authorization", "projeto-teste-b2928").
@@ -166,7 +169,7 @@ public class TesteDaAPI {
                 post("evaluations").getBody();
         
         Avaliacao resultado = body.as(Avaliacao.class);
-        String id = resultado.getId();
+        id = resultado.getId();
         
         //Deleta
         given().
@@ -193,7 +196,7 @@ public class TesteDaAPI {
         when().
                 post("evaluations").getBody();
         Avaliacao resultado = body.as(Avaliacao.class);
-        String id = resultado.getId();
+        id = resultado.getId();
         
         //Atualiza
         avaliacao.put("clienteAvaliador", "-LGHh8QFO8xIz3x-xKNg");
@@ -215,5 +218,5 @@ public class TesteDaAPI {
                 header("Authorization", "projeto-teste-b2928").
         when().
                 delete("evaluations?id=" +id);
-    }*/
+    }
 }
