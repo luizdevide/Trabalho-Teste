@@ -39,7 +39,6 @@ public class TesteInterface {
         driver.close();
     }
     
-    
     @Test
     public void testeCadastraCliente() {
         PaginaCadastraCliente pCC = new PaginaCadastraCliente(driver);
@@ -68,7 +67,6 @@ public class TesteInterface {
         Assert.assertEquals(1, vazio);
     }
     
-    
     @Test
     public void testeCadastraAvaliacaoIncompleto(){
         PaginaCadastraAvaliacao pCA = new PaginaCadastraAvaliacao(driver);
@@ -84,5 +82,7 @@ public class TesteInterface {
         PaginaAvaliacoes pA = new PaginaAvaliacoes(driver);
         pA.abre();
         pA.mostraAvaliacoes();
+        String nomeAvaliador = pA.recebeAvaliador();
+        Assert.assertEquals("Luiz Guilherme", nomeAvaliador);
     }
 }

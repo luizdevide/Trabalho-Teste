@@ -24,7 +24,12 @@ public class PaginaAvaliacoes {
     }
     
     public void mostraAvaliacoes(){
-        driver.findElement(By.id("menu-avalacoes-home"));
-        driver.findElement(By.id("av-buscar-todos"));
+        driver.findElement(By.id("menu-avalacoes-home")).click();
+        driver.findElement(By.id("av-buscar-todos")).click();
+    }
+    
+    public String recebeAvaliador(){
+        String avaliador = driver.findElement(By.xpath("//*[@id=\"toRenderAval\"]/tr[1]/th")).getText();
+        return avaliador;
     }
 }
